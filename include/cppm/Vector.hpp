@@ -2,8 +2,9 @@
 
 #include <array>
 #include <initializer_list>
+#include <memory>
 
-namespace cppm::Math
+namespace cppm
 {
     template<std::size_t C, typename T>
     struct Vec

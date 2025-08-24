@@ -1,6 +1,6 @@
 #include <cppm/Angle.hpp>
 
-namespace cppm::Math
+namespace cppm
 {
     Angle Angle::PI = Angle::radians(_PI);
 }

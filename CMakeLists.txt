@@ -1,12 +1,12 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.10)
 
 project(cppm)
 
-set(CPP_VERSION 17 CACHE STRING "C++ standard to use")
+set(CPP_VERSION 20 CACHE STRING "C++ standard to use")
 set(CMAKE_CXX_STANDARD ${CPP_VERSION})
 message("Using standard C++${CPP_VERSION}")
 
-add_executable(main src/Angle.cpp main.cpp)
+add_library(cppm src/Angle.cpp)
 
 if (CPP_VERSION EQUAL 20)
     include(CheckIncludeFileCXX)
@@ -14,8 +14,8 @@ if (CPP_VERSION EQUAL 20)
     if (CHECK_NUMBERS EQUAL 0)
         message(WARN "numbers.h not found")
     else()
-        target_compile_definitions(main PRIVATE USE_NUMBERS)
+        target_compile_definitions(cppm PUBLIC USE_NUMBERS)
     endif()
 endif()
 
-target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(cppm PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

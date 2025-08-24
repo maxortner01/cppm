@@ -4,7 +4,7 @@
 #   include <numbers>
 #endif
 
-namespace cppm::Math
+namespace cppm
 {
     struct Angle
     {
